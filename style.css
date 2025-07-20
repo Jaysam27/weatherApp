@@ -1,0 +1,363 @@
+/*
+ * Weatherly Styles - Berlin Screenshot Colors & Improved Icons
+ */
+:root {
+    --primary: #4f8cff;
+    --bg-gradient: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+    --text: #222;
+    --panel: #fff;
+    --shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --radius: 18px;
+    --transition: 0.3s cubic-bezier(.4,2,.6,1);
+    --icon-size: 2.2em;
+}
+body {
+    font-family: 'Inter', 'Montserrat', Arial, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text);
+    transition: background 0.5s;
+}
+body.dark {
+    --primary: #90caf9;
+    --bg: #181a1b;
+    --text: #ffffff;
+    --panel: #232526;
+    --stat-label: #90caf9;
+    --stat-value: #ffffff;
+    --desc: #90caf9;
+    --quote: #90caf9;
+    --pill-bg: #263238;
+    --pill-hover: #37474f;
+    --pill-title: #90caf9;
+    --pill-artist: #ffffff;
+}
+body.dark, body.dark .container, body.dark .weather-main, body.dark .weather-stats, body.dark .stat, body.dark .stat-label, body.dark .weather-main .temp, body.dark .weather-main h2, body.dark .weather-main .desc, body.dark .aesthetic-quote, body.dark .quote-icon, body.dark .song-pill, body.dark .song-pill:hover, body.dark .song-title, body.dark .song-artist, body.dark .weather-stats div {
+  color: #ffffff !important;
+}
+.stat-label, .weather-main h2, .weather-main .desc, .aesthetic-quote, .quote-icon, .song-title {
+  color: var(--stat-label, #1976d2) !important;
+}
+.theme-toggle {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 10;
+}
+#themeSwitcher {
+    background: var(--panel);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5em;
+    padding: 8px 12px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background var(--transition);
+}
+.container {
+    max-width: 400px;
+    margin: 60px auto 32px auto;
+    background: var(--panel);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 36px 24px 24px 24px;
+    text-align: center;
+    position: relative;
+    transition: background var(--transition);
+}
+header h1 {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0 0 18px 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+.logo {
+    color: var(--primary);
+    font-size: 1.3em;
+}
+nav button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    margin-left: 8px;
+    cursor: pointer;
+    color: var(--primary);
+    transition: color var(--transition);
+}
+form#weatherForm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+    gap: 8px;
+}
+#cityInput {
+    padding: 12px;
+    width: 65%;
+    border: 1px solid #e0e7ef;
+    border-radius: 24px;
+    font-size: 1.1em;
+    outline: none;
+    background: #f0f4fa;
+    transition: border var(--transition), background var(--transition);
+}
+#cityInput:focus {
+    border: 1.5px solid var(--primary);
+    background: #fff;
+}
+form button[type="submit"] {
+    padding: 12px 18px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.3em;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background var(--transition);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form button[type="submit"]:hover {
+    background: #356ae6;
+}
+.weather-main {
+    margin: 18px 0 8px 0;
+    padding: 18px 0 8px 0;
+    border-radius: var(--radius);
+    background: rgba(255,255,255,0.12);
+    box-shadow: var(--shadow);
+    min-height: 110px;
+    position: relative;
+    animation: fadeIn 0.7s;
+}
+.weather-main h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #1976d2;
+}
+.weather-main .weather-symbol {
+    font-size: 5em;
+    margin-bottom: 8px;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+}
+.weather-main .temp {
+    font-size: 2.1em;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #222;
+}
+.weather-main .desc {
+    font-size: 1em;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+    color: #1976d2;
+}
+.weather-details {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 8px;
+}
+.weather-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin: 18px 0 8px 0;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2em;
+  color: #222;
+  min-width: 90px;
+}
+.stat-icon {
+  font-size: var(--icon-size);
+  margin-bottom: 4px;
+  color: #2193b0;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+}
+.stat-label {
+  font-size: 1em;
+  color: #1976d2;
+  margin-top: 2px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.weather-stats div {
+  color: #222;
+}
+.spinner {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid var(--primary);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    animation: spin 1s linear infinite;
+    margin: 18px auto;
+}
+.spinner.hidden {
+    display: none;
+}
+.error {
+    color: #e74c3c;
+    margin: 10px 0 0 0;
+    font-weight: bold;
+    min-height: 20px;
+}
+footer {
+    text-align: center;
+    color: #888;
+    font-size: 0.93em;
+    margin-bottom: 10px;
+}
+footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+/* Weather Songs Styling */
+.weather-songs {
+  margin-top: 1.5em;
+}
+.songs-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  color: var(--text-secondary, #555);
+}
+.songs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+}
+.song-link {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.18);
+  border-radius: 2em;
+  padding: 0.5em 1.2em 0.5em 0.9em;
+  text-decoration: none;
+  color: #222;
+  font-size: 1em;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  position: relative;
+  min-width: 0;
+}
+.song-link:hover, .song-link:focus {
+  background: rgba(79,140,255,0.18);
+  color: #1a4fff;
+  box-shadow: 0 4px 16px 0 rgba(79,140,255,0.12);
+}
+.song-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.song-pill {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+  padding: 0.4em 1em 0.4em 0.7em;
+  color: #222;
+  text-decoration: none;
+  font-size: 0.98em;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  border: 1px solid rgba(0,0,0,0.07);
+  min-width: 0;
+}
+.song-pill:hover {
+  background: #e3f2fd;
+  color: #1976d2;
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.10);
+}
+.song-icon {
+  margin-right: 0.6em;
+  font-size: 1.2em;
+}
+.song-title {
+  font-weight: 600;
+  margin-right: 0.4em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #1976d2;
+}
+.song-artist {
+  opacity: 0.7;
+  font-size: 0.95em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #222;
+}
+.aesthetic-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.22);
+  border-radius: 1.5em;
+  padding: 0.7em 1.4em;
+  margin: 1.2em auto 0.7em auto;
+  font-size: 1.13em;
+  font-style: italic;
+  color: #1976d2;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+  max-width: 90%;
+  gap: 0.6em;
+  letter-spacing: 0.01em;
+}
+.quote-icon {
+  font-size: 1.3em;
+  opacity: 0.7;
+  color: #1976d2;
+}
+.quote-text {
+  flex: 1;
+  text-align: center;
+  color: var(--primary);
+}
+@media (max-width: 600px) {
+    .container {
+        max-width: 98vw;
+        padding: 12px 2vw;
+    }
+    .weather-main {
+        padding: 6px 0;
+    }
+    .weather-stats {
+        gap: 12px;
+    }
+  .songs-list {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .song-link {
+    font-size: 0.98em;
+    padding: 0.5em 1em 0.5em 0.8em;
+  }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

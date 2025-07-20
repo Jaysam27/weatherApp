@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Weatherly - Minimalist Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="themeSwitcher" aria-label="Switch Theme">🌙</button>
+    </div>
+    <main class="container">
+        <header>
+            <h1><span class="logo">☁️</span> <span data-i18n="appName">Weatherly</span></h1>
+            <nav>
+                <button id="settingsBtn" title="Settings">⚙️</button>
+            </nav>
+        </header>
+        <form id="weatherForm" autocomplete="off">
+            <input type="text" id="cityInput" placeholder="Search city" required data-i18n-placeholder="searchCity">
+            <button type="submit" aria-label="Get Weather" data-i18n="getWeather">→</button>
+        </form>
+        <section id="weatherMain" class="weather-main"></section>
+        <section id="weatherStats" class="weather-stats"></section>
+        <section id="searchHistory" class="history"></section>
+        <section id="favoritesPanel" class="panel hidden"></section>
+        <section id="settingsPanel" class="panel hidden">
+            <h2 data-i18n="settingsTitle">Settings</h2>
+            <label>
+                <span data-i18n="units">Units:</span>
+                <select id="unitSelect">
+                    <option value="metric" data-i18n="celsius">Celsius (°C)</option>
+                    <option value="imperial" data-i18n="fahrenheit">Fahrenheit (°F)</option>
+                </select>
+            </label>
+            <label>
+                <span data-i18n="language">Language:</span>
+                <select id="langSelect">
+                    <option value="en" data-i18n="english">English</option>
+                    <option value="es" data-i18n="spanish">Spanish</option>
+                    <option value="fr" data-i18n="french">French</option>
+                    <option value="de" data-i18n="german">German</option>
+                    <option value="zh_cn" data-i18n="chinese">Chinese</option>
+                </select>
+            </label>
+            <button id="closeSettings" data-i18n="close">Close</button>
+        </section>
+        <div id="loadingSpinner" class="spinner hidden"></div>
+        <div id="errorMsg" class="error"></div>
+    </main>
+    <footer>
+        <p data-i18n="poweredBy">Powered by <a href="https://openweathermap.org/" target="_blank" rel="noopener">OpenWeatherMap</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
